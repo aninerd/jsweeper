@@ -141,7 +141,6 @@ JSweeper = (function() {
 
   _flagButton = function(evt) {
     evt.preventDefault();
-    console.log(timer)
     if (!timer) _startTimer();
 
     var $el = $(this),
@@ -167,7 +166,6 @@ JSweeper = (function() {
   _pressButton = function(evt) {
     var $el, x, y , btnIdx, btn;
 
-    (console.log(timer))
     if (!timer) _startTimer();
 
     if (evt.which === 1) {
@@ -233,6 +231,9 @@ JSweeper = (function() {
         $btn = $('[data-x='+x+'][data-y='+y+']');
 
     if (type === 'explode') {
+      const text = $btn.text()
+      if (text.indexOf('*') > -1) {return}
+      if ($btn.hasClass('exploded')) {return}
       $btn.addClass('exploded').append('*');
     } else {
       $btn.addClass('open');

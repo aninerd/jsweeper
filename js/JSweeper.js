@@ -186,11 +186,16 @@ JSweeper = (function() {
 
   };
 
+  _frozeBoard = function() {
+    $("#mine-grid button").prop('disabled', true);
+  };
+
   // Explodes all mines and disables all buttons
   _explodeMines = function() {
     var len = mineMap.length,
         i, btn;
     _stopTimer();
+    _frozeBoard();
     for (i = 0; i < len; i++) {
       btn = mineMap[i];
       if (btn.mine && btn.status !== 1) {
@@ -222,6 +227,7 @@ JSweeper = (function() {
   _hasWon = function() {
     if (_allMinesFlagged() || _allBoxesOpen()) {
       _stopTimer();
+      _frozeBoard();
     }
   }
 
@@ -276,7 +282,6 @@ JSweeper = (function() {
     $('.reset').on('click', function() {
       var level = resetLevel;
       _stopTimer();
-      _startTimer();
       _resetBoard(Settings[level]);
     })
   };

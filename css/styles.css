@@ -58,7 +58,7 @@ body {
 }
 
 h1 {
-  font-size: 45px;
+  font-size: 28px;
   text-align: center;
   padding-top: 50px;
 }
@@ -68,14 +68,17 @@ h1 {
 #mine-grid button {
   width: 25px;
   height: 25px;
+  line-height: 21px;
+  overflow: hidden;
   border: 1px solid #171617 !important;
   border-right: 0;
   border-bottom: 0;
   background: #2D3E4A;
-  line-height: 21px;
   font-size: 13px;
   padding-bottom: 6px;
   display: inline-block;
+  text-align: center;
+  vertical-align: middle;
 }
 
 #mine-grid button.open {
